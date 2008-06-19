@@ -8,6 +8,7 @@ module Chit
   defaults = {
     'root'  => "#{ENV['HOME']}/.chit"
   }
+  
   CONFIG = defaults.merge(YAML.load_file("#{ENV['HOME']}/.chitrc"))
   
   def run(args)

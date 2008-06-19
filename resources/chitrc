@@ -1,6 +1,6 @@
 # root: 
 main:
-#  clone-from:
+  clone-from: git://github.com/robin/chitsheet.git
 #  push-to:
 private:
 #   clone-from:
