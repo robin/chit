@@ -19,6 +19,10 @@ There are several differences between 'cheat' and 'chit'. By using chit, besides
 
 == SYNOPSIS:
 
+To initialize chit repositories
+$ chit --init
+This will be run automatically when you run chit for the first time. 
+
 To get your cheat sheet:
 $ chit [cheatsheet]
 If it does not exist, a new one will be created and waiting for your editing. Leave it blank and quit the editor if you don't want to add a new one.
@@ -45,6 +49,8 @@ will get your the cheat sheet 'select' under mysql.
 == INSTALL:
 
 sudo gem install chit
+
+chit --init
 
 == CONFIGURATION:
 

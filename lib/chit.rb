@@ -9,9 +9,16 @@ module Chit
     'root'  => "#{ENV['HOME']}/.chit"
   }
   
-  CONFIG = defaults.merge(YAML.load_file("#{ENV['HOME']}/.chitrc"))
+  CHITRC = "#{ENV['HOME']}/.chitrc"
+  
+  FileUtils.cp(File.join(File.dirname(__FILE__), "../resources/chitrc"), CHITRC) unless File.exist?(CHITRC)
+  
+  CONFIG = defaults.merge(YAML.load_file(CHITRC))
   
   def run(args)
+    unless File.exist?(main_path) && File.exist?(private_path)
+      return unless init_chit
+    end
     args = args.dup
     
     return unless parse_args(args)
@@ -80,9 +87,6 @@ module Chit
   end
   
   def update
-    unless File.exist?(main_path)
-      return unless init_chit
-    end
     if CONFIG['main']['clone-from']
       g = Git.open(main_path)
       g.pull
