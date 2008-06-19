@@ -48,7 +48,7 @@ will get the cheat sheet 'select' under mysql.
 
 == INSTALL:
 
-sudo gem install chit
+sudo gem install robin-chit -s http://gems.github.com
 
 chit --init
 
