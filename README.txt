@@ -8,14 +8,14 @@ Chit is A command line tool for cheat sheet utility based on git.
 
 == FEATURES:
 
-Chit was inspired by 'cheat' (http://cheat.errtheblog.com/) by Chris Wanstrath. You can use chit to access and manage your cheat sheets easily. 
+Chit was inspired by 'cheat' (http://cheat.errtheblog.com/) by Chris Wanstrath. You can use chit to access and manage cheat sheets easily. 
 
-There are several differences between 'cheat' and 'chit'. By using chit, besides the wonderful features of 'cheat', you get:
+There are several differences between ‘cheat’ and ‘chit’. By using chit, besides the wonderful features of ‘cheat’, you get:
 
-1. Git powered cheat sheet repository. You can specify where you get the sheets and where to share them. 
-2. Your own private cheat sheet. Everybody has some project related or smoe cheat sheets which are not mean to public. You can also put them into chit
+1. Git powered cheat sheet repository. You can specify where you get the sheets and where to share them.
+2. Your own private cheat sheets. Everybody has some project related or smoe cheat sheets which are not mean to public. You can also put them into chit
 3. Directory support. You can group cheat sheets by directory now.
-4. one less letter to type.
+4. One less letter to type.
 
 == SYNOPSIS:
 
@@ -23,9 +23,9 @@ To initialize chit repositories
 $ chit --init
 This will be run automatically when you run chit for the first time. 
 
-To get your cheat sheet:
+To get a cheat sheet:
 $ chit [cheatsheet]
-If it does not exist, a new one will be created and waiting for your editing. Leave it blank and quit the editor if you don't want to add a new one.
+If it does not exist, a new one will be created and waiting for editing. Leave it blank and quit the editor if you don't want to add a new one.
 
 To edit a cheat sheet, use the --edit switch.
 $ cheat [cheatsheet] --edit
@@ -44,7 +44,7 @@ The prefix '@' works the same for both --edit and --add.
 
 The cheat sheet can be in a path. For example:
 $ chit mysql/select
-will get your the cheat sheet 'select' under mysql.
+will get the cheat sheet 'select' under mysql.
 
 == INSTALL:
 
