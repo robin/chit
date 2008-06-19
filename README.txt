@@ -4,7 +4,7 @@ http://github.com/robin/chit
 
 == DESCRIPTION:
 
-Chit is A command line tool for cheat sheet utility based on git.
+Chit is a command line cheat sheet utility based on git.
 
 == FEATURES:
 
