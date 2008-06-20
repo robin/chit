@@ -51,15 +51,21 @@ module Chit
 
     @fullpath = File.join(working_dir, "#{@sheet}.yml")
     
-    add(sheet_file) and return if args.delete('--add')
-    edit(sheet_file) and return if args.delete('--edit')
+    add(sheet_file) and return if (args.delete('--add')||args.delete('-a'))
+    edit(sheet_file) and return if (args.delete('--edit')||args.delete('-e'))
+    search and return if (args.delete('--search')||args.delete('-s'))
     true
   end
   
   def list_all
-    files = @git.ls_files.to_a.map {|f| 
-      f[0][0..((f[0].rindex('.')||0) - 1)]}
+    puts all_sheets.sort.join("\n")
+  end
+  
+  def search
+    reg = Regexp.compile("^#{@sheet}")
+    files = all_sheets.select {|sheet| sheet =~ reg }
     puts files.sort.join("\n")
+    true
   end
   
   def sheet_file
@@ -153,8 +159,10 @@ module Chit
       @git.add
       @git.commit_all("-")
     end
+    true
   end
   
+  private
   def editor
     ENV['VISUAL'] || ENV['EDITOR'] || "vim"
   end
@@ -172,4 +180,10 @@ module Chit
     tempfile.close
     body
   end
+  
+  def all_sheets
+    @git.ls_files.to_a.map {|f| 
+      f[0][0..((f[0].rindex('.')||0) - 1)]}
+  end
+  
 end

@@ -31,11 +31,11 @@ $ chit [cheatsheet]
 
 If it does not exist, a new one will be created and waiting for editing. Leave it blank and quit the editor if you don't want to add a new one.
 
-To edit a cheat sheet, use the --edit switch.
+To edit a cheat sheet, use the --edit/-e switch.
 
 $ cheat [cheatsheet] --edit
 
-To add a cheat sheet, use the --add switch.
+To add a cheat sheet, use the --add/-a switch.
 
 $ cheat [cheatsheet] --add
 
@@ -47,7 +47,7 @@ To get your private cheat sheet:
 
 $ chit @[cheatsheet]
 
-The prefix '@' works the same for both --edit and --add.
+The prefix '@' works the same for both --edit/-e and --add/-a.
 
 The cheat sheet can be in a path. For example:
 
@@ -62,6 +62,10 @@ $ chit [all|sheets]
 To show all the private cheat sheets:
 
 $ chit @[all|sheets]
+
+To search cheat sheets begin with 'name', use the --search/-s switch
+
+$ chit name --search
 
 == INSTALL:
 
