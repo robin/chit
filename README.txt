@@ -57,11 +57,11 @@ will get the cheat sheet 'select' under mysql.
 
 To show all the cheat sheets:
 
-$ chit [all|show]
+$ chit [all|sheets]
 
 To show all the private cheat sheets:
 
-$ chit @[all|show]
+$ chit @[all|sheets]
 
 == INSTALL:
 
