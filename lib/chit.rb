@@ -22,6 +22,10 @@ module Chit
     args = args.dup
     
     return unless parse_args(args)
+
+    if %w[sheets all].include? @sheet
+      return list_all()
+    end
     
     unless File.exist?(sheet_file)
       update
@@ -41,13 +45,21 @@ module Chit
     @sheet = args.shift || 'chit'
     is_private = (@sheet =~ /^@(.*)/)
     @sheet = is_private ? $1 : @sheet
+
     working_dir = is_private ? private_path : main_path
-    @fullpath = File.join(working_dir, "#{@sheet}.yml")
     @git = Git.open(working_dir)
+
+    @fullpath = File.join(working_dir, "#{@sheet}.yml")
     
     add(sheet_file) and return if args.delete('--add')
     edit(sheet_file) and return if args.delete('--edit')
     true
+  end
+  
+  def list_all
+    files = @git.ls_files.to_a.map {|f| 
+      f[0][0..((f[0].rindex('.')||0) - 1)]}
+    puts files.sort.join("\n")
   end
   
   def sheet_file

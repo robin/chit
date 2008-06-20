@@ -20,17 +20,23 @@ There are several differences between ‘cheat’ and ‘chit’. By using chit,
 == SYNOPSIS:
 
 To initialize chit repositories
+
 $ chit --init
+
 This will be run automatically when you run chit for the first time. 
 
 To get a cheat sheet:
+
 $ chit [cheatsheet]
+
 If it does not exist, a new one will be created and waiting for editing. Leave it blank and quit the editor if you don't want to add a new one.
 
 To edit a cheat sheet, use the --edit switch.
+
 $ cheat [cheatsheet] --edit
 
 To add a cheat sheet, use the --add switch.
+
 $ cheat [cheatsheet] --add
 
 During editing a cheat sheet, empty the content will get the cheat sheet removed.
@@ -38,12 +44,15 @@ During editing a cheat sheet, empty the content will get the cheat sheet removed
 A prefix '@' indicates the cheat sheet is in private mode. A private cheat sheet is kept in another repository.
 
 To get your private cheat sheet:
+
 $ chit @[cheatsheet]
 
 The prefix '@' works the same for both --edit and --add.
 
 The cheat sheet can be in a path. For example:
+
 $ chit mysql/select
+
 will get the cheat sheet 'select' under mysql.
 
 == INSTALL:
@@ -58,9 +67,9 @@ Before run 'chit', you may want to config ~/.chitrc which is a YAML file.
 
 * root: local path to store the cheat sheet. By default, it is ~/.chit
 * main: 
-** clone-from: where to get the public cheat sheets. You can use git://github.com/robin/chitsheet.git, which is a snap shoot of http://cheat.errtheblog.com/.
+* clone-from: where to get the public cheat sheets. You can use git://github.com/robin/chitsheet.git, which is a snap shoot of http://cheat.errtheblog.com/.
 * private:
-** clone-from: where to get the private cheat sheets. If not specified, a new git repository will be init for private cheat sheets.
+* clone-from: where to get the private cheat sheets. If not specified, a new git repository will be init for private cheat sheets.
 
 == REQUIREMENTS:
 
@@ -71,7 +80,7 @@ Before run 'chit', you may want to config ~/.chitrc which is a YAML file.
 
 This software is shared by MIT License
 
-Copyright (c) 2008 FIX
+Copyright (c) 2008 Robin Lu
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -93,6 +102,9 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 == BY:
+
 Robin Lu
+
 http://www.robinlu.com
+
 iamawalrus[at]gmail[dot]com
