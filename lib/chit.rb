@@ -32,7 +32,11 @@ module Chit
     end
     
     unless File.exist?(sheet_file)
-      add(sheet_file)
+      if args.delete('--no-add').nil? && CONFIG['add_if_not_exist']
+        add(sheet_file)
+      else
+        puts "Error!:\n  #{@sheet} not found"
+      end
     else
       show(sheet_file)
     end

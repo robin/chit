@@ -29,8 +29,6 @@ To get a cheat sheet:
 
 $ chit [cheatsheet]
 
-If it does not exist, a new one will be created and waiting for editing. Leave it blank and quit the editor if you don't want to add a new one.
-
 To edit a cheat sheet, use the --edit/-e switch.
 
 $ cheat [cheatsheet] --edit
@@ -78,6 +76,8 @@ chit --init
 Before run 'chit', you may want to config ~/.chitrc which is a YAML file.
 
 * root: local path to store the cheat sheet. By default, it is ~/.chit
+* add_if_not_exist: when set as 'true', if no sheets found, a new one will be created and waiting for editing. Leave it blank and quit the editor if you don't 
+want to add a new one.
 * main: 
 * clone-from: where to get the public cheat sheets. You can use git://github.com/robin/chitsheet.git, which is a snap shoot of http://cheat.errtheblog.com/.
 * private:

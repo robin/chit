@@ -1,4 +1,5 @@
 # root: 
+# add_if_not_exist: true
 main:
   clone-from: git://github.com/robin/chitsheet.git
 #  push-to:
