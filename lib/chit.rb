@@ -6,12 +6,12 @@ module Chit
   VERSION = '0.0.2'
   
   defaults = {
-    'root'  => "#{ENV['HOME']}/.chit"
+    'root'  => File.join("#{ENV['HOME']}",".chit")
   }
   
-  CHITRC = "#{ENV['HOME']}/.chitrc"
+  CHITRC = File.join("#{ENV['HOME']}",".chitrc")
   
-  FileUtils.cp(File.join(File.dirname(__FILE__), "../resources/chitrc"), CHITRC) unless File.exist?(CHITRC)
+  FileUtils.cp(File.join(File.dirname(__FILE__), "..","resources","chitrc"), CHITRC) unless File.exist?(CHITRC)
   
   CONFIG = defaults.merge(YAML.load_file(CHITRC))
   
@@ -138,9 +138,9 @@ module Chit
   
   def add(sheet_file)
     unless File.exist?(sheet_file)
-      breaker = sheet_file.rindex('/')+1
+      breaker = sheet_file.rindex(File::Separator)+1
       path = sheet_file[0,breaker]
-      title = @sheet.gsub(/\//,'::')
+      title = @sheet.split(File::Separator).join('::')
       FileUtils.mkdir_p(path)
       yml = {"#{title}" => ''}.to_yaml
       open(sheet_file, 'w') {|f| f << yml}
