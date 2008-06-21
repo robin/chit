@@ -138,42 +138,45 @@ module Chit
     File.join(CONFIG['root'], 'private')
   end
   
-  def show(sheet_file)
-    sheet = YAML.load(IO.read(sheet_file)).to_a.first
+  def show(file)
+    sheet = YAML.load(IO.read(file)).to_a.first
     sheet[-1] = sheet.last.join("\n") if sheet[-1].is_a?(Array)
     puts sheet.first + ':'
     puts '  ' + sheet.last.gsub("\r",'').gsub("\n", "\n  ").wrap
   end
   
-  def rm(sheet_file)
-    @git.remove(sheet_file)
-    @git.commit_all("-")
+  def rm(file)
+    @git.remove(file)
+    @git.commit_all("#{@sheet} removed")
   rescue Git::GitExecuteError
-    FileUtils.rm_rf(sheet_file)
+    FileUtils.rm_rf(file)
   end
   
-  def add(sheet_file)
-    unless File.exist?(sheet_file)
-      breaker = sheet_file.rindex(File::Separator)+1
-      path = sheet_file[0,breaker]
+  def add(file)
+    unless File.exist?(file)
+      breaker = file.rindex(File::Separator)+1
+      path = file[0,breaker]
       title = @sheet.split(File::Separator).join('::')
       FileUtils.mkdir_p(path)
       yml = {"#{title}" => ''}.to_yaml
-      open(sheet_file, 'w') {|f| f << yml}
+      open(file, 'w') {|f| f << yml}
     end
-    edit(sheet_file)
+    edit(file)
   end
   
-  def edit(sheet_file)
-    sheet = YAML.load(IO.read(sheet_file)).to_a.first
+  def edit(file)
+    sheet = YAML.load(IO.read(file)).to_a.first
     sheet[-1] = sheet.last.gsub("\r", '')
     body, title = write_to_tempfile(*sheet), sheet.first
     if body.strip.empty?
-      rm(sheet_file)
+      rm(file)
     else
-      open(sheet_file,'w') {|f| f << {title => body}.to_yaml}
+      open(file,'w') {|f| f << {title => body}.to_yaml}
       @git.add
-      @git.commit_all("-")
+      st = @git.status
+      unless st.added.empty? && st.changed.empty? && st.deleted.empty? && st.untracked.empty?
+        @git.commit_all(" #{@sheet} updated")        
+      end
     end
     true
   end
