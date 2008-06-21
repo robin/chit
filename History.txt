@@ -1,3 +1,9 @@
+=== 0.0.4 / 2008-06-21
+
+* search content by adding switch '--search/-s'
+* find title by adding switch '--find/-f'
+* disable 'add when not found'. You can enable it by modifying config file.
+
 === 0.0.1 / 2008-06-19
 
 * Birthday!

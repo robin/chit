@@ -3,7 +3,7 @@ $:.unshift File.dirname(__FILE__)
 
 module Chit
   extend self
-  VERSION = '0.0.2'
+  VERSION = '0.0.4'
   
   defaults = {
     'root'  => File.join("#{ENV['HOME']}",".chit")
