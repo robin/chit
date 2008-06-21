@@ -36,6 +36,8 @@ module Chit
         add(sheet_file)
       else
         puts "Error!:\n  #{@sheet} not found"
+        puts "Possible sheets:"
+        search_title
       end
     else
       show(sheet_file)
@@ -57,7 +59,8 @@ module Chit
     
     add(sheet_file) and return if (args.delete('--add')||args.delete('-a'))
     edit(sheet_file) and return if (args.delete('--edit')||args.delete('-e'))
-    search and return if (args.delete('--search')||args.delete('-s'))
+    search_title and return if (args.delete('--find')||args.delete('-f'))
+    search_content and return if (args.delete('--search')||args.delete('-s'))
     true
   end
   
@@ -65,7 +68,16 @@ module Chit
     puts all_sheets.sort.join("\n")
   end
   
-  def search
+  def search_content
+    @git.grep(@sheet).each {|file, lines|
+      title = title_of_file(file.split(':')[1])
+      lines.each {|l|
+        puts "#{title}:#{l[0]}:  #{l[1]}"
+      }
+    }
+  end
+  
+  def search_title
     reg = Regexp.compile("^#{@sheet}")
     files = all_sheets.select {|sheet| sheet =~ reg }
     puts files.sort.join("\n")
@@ -187,7 +199,11 @@ module Chit
   
   def all_sheets
     @git.ls_files.to_a.map {|f| 
-      f[0][0..((f[0].rindex('.')||0) - 1)]}
+      title_of_file(f[0])}
+  end
+  
+  def title_of_file(f)
+    f[0..((f.rindex('.')||0) - 1)]
   end
   
 end

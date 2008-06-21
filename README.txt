@@ -61,9 +61,13 @@ To show all the private cheat sheets:
 
 $ chit @[all|sheets]
 
-To search cheat sheets begin with 'name', use the --search/-s switch
+To find cheat sheets begin with 'name', use the --find/-f switch
 
-$ chit name --search
+$ chit name --find
+
+To search cheat sheets content with 'text', use the --search/-s switch
+
+$ chit text --search
 
 == INSTALL:
 
