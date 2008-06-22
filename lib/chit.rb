@@ -40,7 +40,8 @@ module Chit
         search_title
       end
     else
-      show(sheet_file)
+      format = 'html' if args.delete('--html')
+      show(sheet_file,format)
     end
   end
   
@@ -160,11 +161,17 @@ module Chit
     File.join(CONFIG['root'], 'private')
   end
   
-  def show(file)
+  def show(file,format=nil)
     sheet = YAML.load(IO.read(file)).to_a.first
     sheet[-1] = sheet.last.join("\n") if sheet[-1].is_a?(Array)
-    puts sheet.first + ':'
-    puts '  ' + sheet.last.gsub("\r",'').gsub("\n", "\n  ").wrap
+    case format
+    when 'html'
+      puts "<h1>#{sheet.first}</h1>"
+      puts "<pre>#{sheet.last.gsub("\r",'').gsub("\n", "\n  ").wrap}</pre>"
+    else
+      puts sheet.first + ':'
+      puts '  ' + sheet.last.gsub("\r",'').gsub("\n", "\n  ").wrap      
+    end
   end
   
   def rm(file)
