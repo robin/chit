@@ -69,6 +69,10 @@ To search cheat sheets content with 'text', use the --search/-s switch
 
 $ chit text --search
 
+To move or rename a sheet, use '--mv/-m' switch
+
+$ chit zsh_if zsh/if -m
+
 == INSTALL:
 
 sudo gem install robin-chit -s http://gems.github.com
