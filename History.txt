@@ -1,3 +1,9 @@
+=== 0.0.6 / 2008-06-23
+
+* bash completion. contributed by Pedro Melo
+* textmate command.
+* fix crash when checking in first private sheet.
+
 === 0.0.5 / 2008-06-22
 
 * move/rename with '--mv/-m'

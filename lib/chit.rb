@@ -3,7 +3,7 @@ $:.unshift File.dirname(__FILE__)
 
 module Chit
   extend self
-  VERSION = '0.0.5'
+  VERSION = '0.0.6'
   
   defaults = {
     'root'  => File.join("#{ENV['HOME']}",".chit")
@@ -103,7 +103,7 @@ module Chit
   def search_title
     reg = Regexp.compile("^#{@sheet}")
     files = all_sheets.select {|sheet| sheet =~ reg }
-    puts files.sort.join("\n")
+    puts "  " + files.sort.join("\n  ")
     true
   end
   
