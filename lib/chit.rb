@@ -133,7 +133,10 @@ module Chit
         puts "Private chit initialized."
       else
         puts "Initialize private chit from scratch to #{CONFIG['root']}/private"
-        Git.init(private_path)
+        git = Git.init(private_path)
+        FileUtils.touch(File.join(CONFIG['root'],'private','.gitignore'))
+        git.add
+        git.commit_all("init private repository")
         puts "Private chit initialized."
       end
     else
