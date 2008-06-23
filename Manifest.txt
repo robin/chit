@@ -5,3 +5,5 @@ bin/chit
 lib/chit.rb
 lib/wrap.rb
 resources/chitrc
+tools/chit-bash-completion.sh
+tools/chit.tmCommand
