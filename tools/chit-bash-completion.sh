@@ -12,12 +12,13 @@
 
 function _chit_completion()
 {
-  local chits partial
+  local chits priv_chits partial
 
   chits=$( chit all 2>/dev/null )
+  priv_chits=$( chit @all | sed -e 's/^/@/g' 2>/dev/null )
   partial=${COMP_WORDS[COMP_CWORD]}
 
-  COMPREPLY=( $( compgen -W "$chits" -- $partial ) )
+  COMPREPLY=( $( compgen -W "$chits $priv_chits" -- $partial ) )
 
   return 0
 }
