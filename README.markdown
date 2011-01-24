@@ -75,7 +75,7 @@ $ chit zsh_if zsh/if -m
 
 ## INSTALL:
 
-sudo gem install robin-chit -s http://gems.github.com
+sudo gem install chit
 
 chit --init
 
