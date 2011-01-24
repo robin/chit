@@ -31,11 +31,11 @@ $ chit [cheatsheet]
 
 To edit a cheat sheet, use the --edit/-e switch.
 
-$ cheat [cheatsheet] --edit
+$ chit [cheatsheet] --edit
 
 To add a cheat sheet, use the --add/-a switch.
 
-$ cheat [cheatsheet] --add
+$ chit [cheatsheet] --add
 
 During editing a cheat sheet, empty the content will get the cheat sheet removed.
 
