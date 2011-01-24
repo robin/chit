@@ -1,12 +1,12 @@
-= Chit
+# Chit
 
 http://github.com/robin/chit
 
-== DESCRIPTION:
+## DESCRIPTION:
 
 Chit is a command line cheat sheet utility based on git.
 
-== FEATURES:
+## FEATURES:
 
 Chit was inspired by 'cheat' (http://cheat.errtheblog.com/) by Chris Wanstrath. You can use chit to access and manage cheat sheets easily. 
 
@@ -17,7 +17,7 @@ There are several differences between ‘cheat’ and ‘chit’. By using chit,
 3. Directory support. You can group cheat sheets by directory now.
 4. One less letter to type.
 
-== SYNOPSIS:
+## SYNOPSIS:
 
 To initialize chit repositories
 
@@ -73,13 +73,13 @@ To move or rename a sheet, use '--mv/-m' switch
 
 $ chit zsh_if zsh/if -m
 
-== INSTALL:
+## INSTALL:
 
 sudo gem install robin-chit -s http://gems.github.com
 
 chit --init
 
-== CONFIGURATION:
+## CONFIGURATION:
 
 Before run 'chit', you may want to config ~/.chitrc which is a YAML file.
 
@@ -91,12 +91,12 @@ want to add a new one.
 * private:
 * clone-from: where to get the private cheat sheets. If not specified, a new git repository will be init for private cheat sheets.
 
-== REQUIREMENTS:
+## REQUIREMENTS:
 
 * rubygems
 * git
 
-== LICENSE:
+## LICENSE:
 
 This software is shared by MIT License
 
@@ -121,7 +121,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-== BY:
+## BY:
 
 Robin Lu
 
