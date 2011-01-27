@@ -24,7 +24,7 @@ module Chit
     return unless parse_args(args)
 
     if %w[sheets all].include? @sheet
-      return list_all()
+      return with_stdout_redirected_to(pipe_to_pager) { list_all() }
     end
     
     unless File.exist?(sheet_file)
@@ -41,7 +41,7 @@ module Chit
       end
     else
       format = 'html' if args.delete('--html')
-      show(sheet_file,format)
+      with_stdout_redirected_to(pipe_to_pager) { show(sheet_file, format) }
     end
   end
   
@@ -162,6 +162,23 @@ module Chit
   
   def private_path
     File.join(CONFIG['root'], 'private')
+  end
+
+  def pager_program
+    ENV['PAGER'] || "more"
+  end
+
+  def pipe_to_pager
+      IO.popen(pager_program, "w")
+  end
+  
+  def with_stdout_redirected_to(io)
+    orig_stdout = $stdout
+    $stdout = io
+    yield
+    $stdout.close
+  ensure
+    $stdout = orig_stdout
   end
   
   def show(file,format=nil)
