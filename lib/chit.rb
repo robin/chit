@@ -50,6 +50,7 @@ module Chit
     update and return if args.delete('--update')
     
     @sheet = args.shift || 'chit'
+    @sheet = 'chit' if @sheet == '--help'
     is_private = (@sheet =~ /^@(.*)/)
     @sheet = is_private ? $1 : @sheet
 
