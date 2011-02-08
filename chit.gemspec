@@ -1,12 +1,12 @@
 Gem::Specification.new do |s|
   s.name = %q{chit}
-  s.version = "1.0"
+  s.version = "1.0.1"
 
   s.specification_version = 2 if s.respond_to? :specification_version=
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Robin Lu"]
-  s.date = %q{2008-06-19}
+  s.date = %q{2011-02-08}
   s.default_executable = %q{chit}
   s.description = %q{Chit is A command line tool for cheat sheet utility based on git.}
   s.email = ["iamawalrus@gmail.com"]
