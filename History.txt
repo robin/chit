@@ -1,3 +1,8 @@
+=== 1.0.1 / 2011-02-08
+
+* Automatically pipe output through PAGER. contributed by Marc Abramowitz.
+* Make --help option do the same thing as "chit chit". contributed by Marc Abramowitz
+
 === 0.0.6 / 2008-06-23
 
 * bash completion. contributed by Pedro Melo
