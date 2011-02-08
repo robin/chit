@@ -12,10 +12,10 @@ Gem::Specification.new do |s|
   s.email = ["iamawalrus@gmail.com"]
   s.executables = ["chit"]
   s.extra_rdoc_files = ["Manifest.txt", "README.rdoc"]
-  s.files = ["Manifest.txt", "README.txt", "Rakefile", "bin/chit", "lib/chit.rb", "lib/wrap.rb", "resources/chitrc", "test/test_chit.rb"]
+  s.files = ["Manifest.txt", "README.rdoc", "Rakefile", "bin/chit", "lib/chit.rb", "lib/wrap.rb", "resources/chitrc", "test/test_chit.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/robin/chit}
-  s.rdoc_options = ["--main", "README.txt"]
+  s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{chit}
   s.rubygems_version = %q{1.0.1}
