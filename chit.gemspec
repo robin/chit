@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = %q{Chit is A command line tool for cheat sheet utility based on git.}
   s.email = ["iamawalrus@gmail.com"]
   s.executables = ["chit"]
-  s.extra_rdoc_files = ["Manifest.txt", "README.txt"]
+  s.extra_rdoc_files = ["Manifest.txt", "README.rdoc"]
   s.files = ["Manifest.txt", "README.txt", "Rakefile", "bin/chit", "lib/chit.rb", "lib/wrap.rb", "resources/chitrc", "test/test_chit.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/robin/chit}
